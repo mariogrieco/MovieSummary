@@ -1,0 +1,8 @@
+{
+  "name": "demo — demo alt",
+  "short_name": "demo",
+  "theme_color": "#282F55",
+  "background_color": "#00569f",
+  "display": "fullscreen",
+  "start_url": "?shell"
+ }

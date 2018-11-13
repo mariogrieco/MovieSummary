@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+
+body {
+  // zoom: 0.899;
+}
+
+body, html, :root {
+  font-family: $primary-font;
+  text-shadow: #fff 0px 1px 1px;
+  
+  // better-font-smoothing css
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // overflow-x: hidden;
+  
+  /* Adjust font size */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* Font varient */
+  font-variant-ligatures: none;  
+  -webkit-font-variant-ligatures: none;
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+  letter-spacing: 0.03333em;
+}
+
+strong { 
+  font-weight: bolder;
+  letter-spacing: normal;
+}
+
+p {
+  letter-spacing: normal;
+  color: $textColor;
+}
+
+
+* { 
+  transition: none;
+  transition-duration: 0s;
+  transition-timing-function: unset;
+  transition-delay: unset;
+}

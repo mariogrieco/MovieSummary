@@ -1,0 +1,30 @@
+// App colors
+$primaryColor: #4b31d0;
+$secondaryColor: #6159da;
+$textColor: #A9A9A9;
+$footerColor: #ebebfb;
+
+// Typography
+$primary-font: 'Open Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+$alter-font: 'Roboto', sans-serif;
+$lato-font: 'Lato', sans-serif;
+
+ // Media queries breakpoints
+$screen-xs: 575.999px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1600px;
+
+// Grid default
+$containerWidth: 1100px;
+
+// ...
+// xs: '575.999', //<
+// sm: '576px', // >=
+// md: '768px', //  >=
+// lg: '992px', // >=
+// xl: '1200px', // >=
+// xxl: '1600px', // >==
