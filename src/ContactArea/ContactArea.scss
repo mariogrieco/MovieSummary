@@ -14,7 +14,7 @@
   margin: 0 auto;
   padding: 35px;
   border-radius: 20px;
-  height: 500px;
+  height: auto;
   display: inline-block;
   text-align: left;
   margin-top: 30px;
@@ -54,6 +54,10 @@
   span {
     height: 42px;
     line-height: 42px;
+    text-align: left;
+    display: block;
+    margin-left: 15px;
+    margin-top: 10px;
   }
   .ant-input {
     max-width: 80%;

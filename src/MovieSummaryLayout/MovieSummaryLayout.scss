@@ -24,3 +24,18 @@
   padding: 0 15px;
   font-size: 1.55em;
 }
+
+@media screen and (max-width: $screen-md) {
+  .MovieSummaryLayout {
+    .MovieSummaryTitle {
+      margin-top: 15px;
+    }
+    .MovieSummaryP {
+      max-width: 100%;
+    }
+    .MovieSummary {
+      height: 100%;
+      text-align: center;
+    }
+  }
+}

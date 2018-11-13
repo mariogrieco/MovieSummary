@@ -1,0 +1,20 @@
+.HeaderTitle {
+  padding: 20px 0px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+.Header {
+  padding: 0px 0px 120px 0px;
+}
+
+.HeaderImg {
+  height: 400px;
+  width: 100%;
+  background-origin: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('/public/images/Black-Panther.jpg');
+}

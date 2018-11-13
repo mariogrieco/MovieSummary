@@ -3,6 +3,7 @@ import MovieSummary from '../../MovieSummary'
 import MovieSummaryLayout from '../../MovieSummaryLayout'
 import ContactArea from '../../ContactArea'
 import Footer from '../../Footer'
+import Header from '../../Header'
 
 // import {
 //   results
@@ -24,22 +25,23 @@ class Landing extends Component {
     if (this.props.resultsNotShell) {
       return false
     }
-
-   try {
-    const r_movies = await Api.getMovies(1).then(e => e.json())
-    const r_genres = await Api.getGenres().then(e => e.json())
-
-    // console.log('r_movies =>', r_movies.results)
-    // console.log('r_genres =>', r_genres.genres)
-    const r = mapGenresIds(r_movies.results, r_genres.genres)
-    // console.log(r)
-      this.setState({
-        results: r
-      })
-   }
-   catch (err) {
-     console.log(err);
-   }
+    else {
+      try {
+        const r_movies = await Api.getMovies(1).then(e => e.json())
+        const r_genres = await Api.getGenres().then(e => e.json())
+    
+        // console.log('r_movies =>', r_movies.results)
+        // console.log('r_genres =>', r_genres.genres)
+        const r = mapGenresIds(r_movies.results, r_genres.genres)
+        // console.log(r)
+          this.setState({
+            results: r
+          })
+       }
+       catch (err) {
+         console.log(err);
+       }
+    }
   }
 
   render () {
@@ -51,16 +53,17 @@ class Landing extends Component {
       results
     } = this.state
 
-    const data = resultsNotShell ? resultsNotShell : results
+    const data = resultsNotShell ? resultsNotShell : results // PWA AND LOADING STATE (PLACEHOLDER) or CSR|SSR...
 
-    // console.log(results)
+    console.log(data)
 
     return (
       <Fragment>
+        <Header />
         <MovieSummaryLayout title='TOP MOVIES'>
           {
             data.map(movie => (
-              <Col xs={24} sm={12} md={12} lg={8} key={movie.id}>
+              <Col xs={24} sm={24} md={12} lg={8} key={movie.id}>
                 <MovieSummary
                   title={movie.title}
                   movieUrl={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
