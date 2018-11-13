@@ -7,11 +7,14 @@ import { renderToString } from "react-dom/server";
 import App from "../src/AppRoutes.js";
 import http from 'http'
 import { StaticRouter } from "react-router-dom";
+import asyncify from 'express-asyncify'
+import Api from '../Api'
+import mapGenresIds from '../helpers/mapGenresIds'
 
 import LRUCache from 'lru-cache'
 const ssrCache = new LRUCache({
   max: 100,
-  maxAge: 0 // 1000 * 60 * 60 // 1hour
+  maxAge: 1000 * 60 // 1mn
 })
 
 function getCacheKey (req) {
@@ -32,7 +35,7 @@ async function renderAndCache (req, res, next) {
   }
 }
 
-const app = express();
+const app = asyncify(express());
 app.set('PORT', process.env.PORT||2048)
 
 app.disable('x-powered-by')
@@ -46,17 +49,26 @@ app.get('/robots.txt', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'robots.txt'))
 })
 
-app.get('/', renderAndCache, ( req, res ) => {
+app.get('/', renderAndCache, async ( req, res ) => {
   res.setHeader('x-cache', 'MISS')
   const key = getCacheKey(req)
-  const context = {};
-  const ReactDom = renderToString(<StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>);
-    const $data = htmlTemplate(ReactDom,  `App - ${req.url}`);
-    ssrCache.set(key, $data)
-    res.writeHead( 200, { "Content-Type": "text/html" } );
-    res.end($data);
+  try {
+    const r_movies = await Api.getMovies(1).then(e => e.json())
+    const r_genres = await Api.getGenres().then(e => e.json())
+    const data = mapGenresIds(r_movies.results, r_genres.genres)
+
+      const context = {};
+    const ReactDom = renderToString(<StaticRouter location={req.url} context={context}>
+        <App resultsNotShell={data} />
+      </StaticRouter>);
+      const $data = htmlTemplate(ReactDom,  `App - ${req.url}`);
+      ssrCache.set(key, $data)
+      res.writeHead( 200, { "Content-Type": "text/html" } );
+      res.end($data);
+  }
+  catch (err) {
+    res.json(err)
+  }
 });
 
 // http.globalAgent.maxSockets = 50;

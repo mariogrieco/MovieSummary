@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.MovieSummaryLayout {
+  max-width: $containerWidth;
+  margin: 0 auto;
+  .MovieSummary {
+    max-width: 480px;
+    height: 520px;
+    margin: 0 auto;
+    overflow: hidden;
+  //   > div {
+  //     width: 50%;
+  //     float: left;
+  //     margin: 0px;
+  //   }
+  }
+}
+
+
+.MovieSummaryLayoutTitle {
+  font-weight: bold;
+  color: white;
+  display: block;
+  padding: 0 15px;
+  font-size: 1.55em;
+}

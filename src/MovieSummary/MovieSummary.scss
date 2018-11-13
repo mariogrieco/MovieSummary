@@ -1,0 +1,51 @@
+.MovieSummary {
+  padding: 15px;
+}
+
+.MovieSummaryP {
+  color: white;
+  display: block;
+  font-size: 0.85em;
+  line-height: 1.65;
+  margin-top: 25px;
+  font-weight: lighter;
+  max-width: 320px;
+  padding: 0px 15px;
+}
+
+.MovieSummaryGenre-item {
+  margin-right: 5px;
+}
+
+.MovieSummaryImg {
+  background: red;
+  height: 239px;
+  // width: 185px;
+  max-height: 239px;
+  max-width: 185px;
+  margin: 0px auto;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.MovieSummaryAnno {
+  color: white;
+  display: block;
+  font-size: 0.89em;
+  // padding: 0px 15px;
+}
+
+.MovieSummaryTitle {
+  color: white;
+  display: block;
+  font-size: 0.89em;
+  padding: 0px 15px;
+}
+
+.MovieSummaryGenre {
+  display: block;
+  font-size: 0.89em;
+  text-transform: capitalize;
+  // padding: 0px 15px;
+}
