@@ -56,7 +56,7 @@ app.get('/', renderAndCache, async ( req, res ) => {
     const r_movies = await Api.getMovies(1).then(e => e.json())
     const r_genres = await Api.getGenres().then(e => e.json())
     const data = mapGenresIds(r_movies.results, r_genres.genres)
-
+    console.log('data server', data)
       const context = {};
     const ReactDom = renderToString(<StaticRouter location={req.url} context={context}>
         <App resultsNotShell={data} />

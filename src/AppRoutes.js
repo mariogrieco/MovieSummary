@@ -24,7 +24,9 @@ class AppRoutes extends Component {
         <Switch>
           <Route
             path='/'
-            component={Landing}
+            render={() => {
+              return <Landing resultsNotShell={this.props.resultsNotShell} />
+            }}
           />
         </Switch>
       </LocaleProvider>

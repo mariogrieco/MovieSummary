@@ -55,7 +55,8 @@ class Landing extends Component {
 
     const data = resultsNotShell ? resultsNotShell : results // PWA AND LOADING STATE (PLACEHOLDER) or CSR|SSR...
 
-    console.log(data)
+    // console.log('data ', data)
+    // console.log('resultsNotShell, ', resultsNotShell)
 
     return (
       <Fragment>
